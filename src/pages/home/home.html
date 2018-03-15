@@ -1,0 +1,18 @@
+<ion-header>
+  <ion-nav>
+    <ion-row col-sm-12>
+    <ion-title col-sm-3 >Home</ion-title>
+    <ion-searchbar [(ngModel)]="autocomplete.input" (ionInput)="setLocation()" placeholder="Search for a place" col-sm-9>
+    </ion-searchbar>
+    </ion-row>
+  </ion-nav>
+</ion-header>
+
+<ion-content>
+  <ion-list [hidden]="autocompleteItems.length == 0">
+  <ion-item *ngFor="let item of autocompleteItems" tappable (click)="selectSearchResult(item)">
+    {{ item.description }}
+  </ion-item>
+</ion-list>
+  <div #map id="map"></div>
+</ion-content>
